@@ -114,5 +114,10 @@ export const ResetButton = styled.button`
   border: none;
   outline: none;
   box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.4);
+  box-shadow: inset -3px -3px 5px 0 rgba(0, 0, 0, 0.2);
   cursor: pointer;
+
+  &:active {
+    transform: scale(0.98);
+  }
 `;

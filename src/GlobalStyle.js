@@ -16,6 +16,10 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     margin: 0;
   }
+
+  a, button {
+    -webkit-tap-highlight-color : transparent;
+  }
 `;
 
 export default GlobalStyle;
