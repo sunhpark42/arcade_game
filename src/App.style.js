@@ -5,7 +5,6 @@ export const Container = styled.div`
   height: 100%;
   padding: 1rem;
 
-  background-color: grey;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -31,7 +30,7 @@ export const updown = keyframes`
   50% {
     transform: translateY(0%);
   }
-  
+
   100% {
     transform: translateY(10%);
   }
