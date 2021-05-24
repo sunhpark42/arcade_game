@@ -50,10 +50,12 @@ const getResult = (user, computer) => {
 
 function App() {
   const [current, setCurrent] = useState('?');
-  const [computer, setComputer] = useState('?');
   const [score, setScore] = useState(0);
-  const [resultText, setResultText] = useState('🕹PRESS THE BUTTON🕹');
+  const [comScore, setComScore] = useState(0);
   const [count, setCount] = useState(0);
+
+  const [computer, setComputer] = useState('?');
+  const [resultText, setResultText] = useState('🕹PRESS THE BUTTON🕹');
 
   const play = (status) => () => {
     const computerStatus = getRandomStatus();
@@ -62,7 +64,7 @@ function App() {
     setCount(count + 1);
 
     if (result === 1) {
-      setScore(score + result);
+      setScore(score + 1);
       setResultText('🎉WIN🎉');
     }
 
@@ -71,6 +73,7 @@ function App() {
     }
 
     if (result === -1) {
+      setComScore(comScore + 1);
       setResultText('😭LOSE😭');
     }
 
@@ -80,6 +83,7 @@ function App() {
 
   const restart = () => {
     setScore(0);
+    setComScore(0);
     setCount(0);
     setResultText('🕹PRESS THE BUTTON🕹');
     setComputer('?');
@@ -92,10 +96,8 @@ function App() {
         <Title>ROCK SCISSORS PAPER!</Title>
         <Display>
           <ResultText aria-label="status text">{resultText}</ResultText>
-          <Score aria-label="score of com and player">{`COM : ${
-            count - score
-          } | PLAYER : ${score}`}</Score>
-          <Score aria-label="winning rate">{`RATE: ${Number(
+          <Score aria-label="score of com and player">{`COM : ${comScore} | PLAYER : ${score}`}</Score>
+          <Score aria-label="winning rate">{`TRY : ${count} | RATE: ${Number(
             ((score / count || 0) * 100).toFixed(1)
           )}%`}</Score>
           {/* computer */}
